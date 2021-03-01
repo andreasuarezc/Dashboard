@@ -1,0 +1,116 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body { 
+  background-color:  #fdedec; 
+  font-family: 'Open Sans', sans-serif;
+}
+
+.header{
+  background-color:  #fdedec ;
+  height: 80px;    
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  position: fixed;
+  top: 0;
+  z-index: 4;
+}
+
+.main{
+  background-position: center;
+  text-align: center;
+  margin-top: 80px;
+}
+
+.contenedor-main{
+  padding: 3% 5% 3% 0%;
+  width: 70%;
+  overflow: hidden;
+  margin: auto;
+  margin-bottom: 60px;
+  margin-top: 50px;
+  border-radius: 3%;
+  display: inline-block;
+  text-align: center;
+  box-shadow: 0px 0px 10px 10px rgb(233, 227, 227);
+  background-color: white;
+}
+
+.titulo{
+  color:  #566573;
+  font-size: 50px;
+  margin-bottom:30px;
+  margin-top: 20px;
+  height: 100px;
+}
+
+.form-input{
+  height: 30px;
+  width: 50%;
+  background-color: rgb(233, 227, 227);
+  border-color: transparent;
+  border-radius: 3%;
+  font-size: 15px;
+  outline-color: #566573;
+  margin-bottom:30px;
+}
+
+.form-submit{
+  width: 12%;
+  color: white;
+  font-weight: bolder;
+  font-size: initial;
+  border-color: #566573;
+  background-color: #566573;
+  border-radius: 5%;
+  outline: none;
+  margin-bottom: 5px;
+  margin-left: 10px;
+}
+
+.form-submit2{
+  height: 25px;
+  width: 85%;
+  color: white;
+  font-weight: lighter;
+  border-color: #94a2af;
+  background-color: #94a2af;
+  border-radius: 5%;
+  outline: none;
+  margin-bottom: 5px;
+  margin-left: 10px;
+  margin-right: 5px;
+  text-align: center;
+}
+.form-submit:hover {
+  background: white;
+  color:#566573
+}
+
+.form-submit2:hover {
+  background: white;
+  color:#566573
+}
+.contenedor{
+  display: flex;
+  justify-content: space-evenly; 
+  flex-direction: row;  
+  margin-bottom: 0px;
+  margin-top: 0px;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.form-label{
+  padding: 0% 0% 5% 0%;
+  color: #566573;
+  font-weight: bold;
+}
