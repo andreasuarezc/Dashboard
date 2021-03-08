@@ -13,7 +13,7 @@ public class TodoList {
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
     private String name;
-    @OneToMany(targetEntity = Todo.class)
+    @OneToMany(fetch = FetchType.LAZY,cascade=javax.persistence.CascadeType.REMOVE)
     @Cascade(value = org.hibernate.annotations.CascadeType.ALL)
     private Set<Todo> toDos;
 }

@@ -15,20 +15,19 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/api")
 @CrossOrigin(origins = "http://localhost:3000")
 public class ToDoListController {
 
     @Autowired
     private TodoListService toDoListService;
     
-    @PostMapping(value = "/todolist")
+    @PostMapping(value = "api/todolist")
     public ResponseEntity<String> newListToDo(@Valid @RequestBody TodoListDTO todo){
         toDoListService.newListToDo(todo);
         return ResponseEntity.ok("Tarea añadida correctamente");
     }
 
-    @PostMapping(value = "/{listId}/todo")
+    @PostMapping(value = "api/{listId}/todo")
     public ResponseEntity<String> addNewToDoByListId(@PathVariable("listId") Long listId,@Valid @RequestBody TodoDTO todo){
         toDoListService.addNewToDoByListId(listId, todo);
         return ResponseEntity.ok("Tarea añadida correctamente");
@@ -47,7 +46,7 @@ public class ToDoListController {
         return errors;
     }
 
-    @PutMapping(value = "/{listId}/todo")
+    @PutMapping(value = "api/{listId}/todo")
     public TodoDTO updateAToDoByListId(@PathVariable("listId") Long listId, @RequestBody TodoDTO todo){
         if(todo.getId() != null){
             return toDoListService.updateAToDoByListId(listId, todo);
@@ -55,22 +54,22 @@ public class ToDoListController {
         throw new NotFoundIdException("No existe el id para actualizar");
     }
 
-    @GetMapping(value = "/list")
+    @GetMapping(value = "api/list")
     public Iterable<TodoListDTO> getAllListToDos(){
         return toDoListService.getAllListToDos();
     }
 
-    @GetMapping(value = "/{listId}/todos")
+    @GetMapping(value = "api/{listId}/todos")
     public Iterable<TodoDTO> getToDosByListId(@PathVariable("listId") Long listId){
         return toDoListService.getToDosByListId(listId);
     }
 
-    @DeleteMapping(value = "/{id}/todolist")
+    @DeleteMapping(value = "api/{id}/todolist")
     public void deleteListById(@PathVariable("id") Long id){
          toDoListService.deleteListById(id);
     }
 
-    @DeleteMapping(value = "/{id}/todo")
+    @DeleteMapping(value = "api/{id}/todo")
     public void deleteAToDoById(@PathVariable("id")Long id){
         toDoListService.deleteAToDoById(id);
     }

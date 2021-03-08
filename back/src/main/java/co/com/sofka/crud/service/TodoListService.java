@@ -32,7 +32,7 @@ public class TodoListService {
     }
 
     public TodoDTO addNewToDoByListId(Long listId, TodoDTO aToDoModel) {
-        var listToDo = todoListRepository.findById(listId)
+        TodoList listToDo = todoListRepository.findById(listId)
                 .orElseThrow(() -> new NotFoundIdException(NO_FAULT_ID));
         var toDo = new Todo();
 
@@ -74,7 +74,7 @@ public class TodoListService {
 
 
     public TodoListDTO newListToDo(TodoListDTO aToDoListModel) {
-        var listToDo = new TodoList();
+        TodoList listToDo = new TodoList();
         listToDo.setName(Objects.requireNonNull(aToDoListModel.getName()));
         var id = todoListRepository.save(listToDo).getId();
         aToDoListModel.setId(id);
@@ -101,7 +101,8 @@ public class TodoListService {
     }
 
     public void deleteAToDoById(Long id) {
-        var toDo = todoRepository.findById(id).orElseThrow();
-        todoRepository.delete(toDo);
+        TodoList todoList =todoListRepository.findAll().iterator().next();
+        todoList.getToDos().remove(id);
+        todoListRepository.save(todoList);
     }
 }
